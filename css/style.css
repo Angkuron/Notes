@@ -1,0 +1,650 @@
+/* =========================================================
+   ANGKURON — MAIN STYLESHEET
+   Organised in sections:
+   1. Variables & Reset
+   2. Layout helpers
+   3. Navbar
+   4. Hero
+   5. Cards (home + subject pages)
+   6. Chapter grid
+   7. Features strip / footer
+   8. Placeholder page
+   9. Responsive breakpoints
+   ========================================================= */
+
+/* ---------- 1. VARIABLES & RESET ---------- */
+:root {
+  --color-dark-green: #163a2b;
+  --color-mid-green: #1f5c3f;
+  --color-accent-green: #2f8f5b;
+  --color-bg-hero: #eaf3ea;
+  --color-bg-page: #f7faf7;
+  --color-text-dark: #14301f;
+  --color-text-muted: #4c6357;
+
+  --color-science-bg: #eaf2fb;
+  --color-science-border: #bcd7f5;
+  --color-science-text: #1d3f66;
+
+  --color-biology-bg: #eaf7ee;
+  --color-biology-border: #bfe3c9;
+  --color-biology-text: #1c4d2c;
+
+  --pill-green-bg: #dcefe0;
+  --pill-blue-bg: #e2edfa;
+
+  --radius-lg: 18px;
+  --radius-md: 12px;
+  --shadow-soft: 0 2px 10px rgba(20, 48, 31, 0.06);
+  --shadow-hover: 0 12px 28px rgba(20, 48, 31, 0.14);
+  --transition-smooth: all 0.25s ease;
+
+  --max-width: 1200px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+  color: var(--color-text-dark);
+  background: var(--color-bg-page);
+  line-height: 1.5;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+ul {
+  list-style: none;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+/* ---------- 2. LAYOUT HELPERS ---------- */
+.max-width-wrap {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* ---------- 3. NAVBAR ---------- */
+.navbar {
+  background: var(--color-dark-green);
+  color: #fff;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.navbar-inner {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 16px 24px;
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.logo {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  white-space: nowrap;
+}
+
+.logo-leaf {
+  font-size: 1.3rem;
+}
+
+.nav-links {
+  display: flex;
+  gap: 28px;
+  flex: 1;
+}
+
+.nav-link {
+  color: #e6efe8;
+  font-size: 1rem;
+  padding-bottom: 4px;
+  border-bottom: 2px solid transparent;
+  transition: var(--transition-smooth);
+  white-space: nowrap;
+}
+
+.nav-link:hover {
+  color: #ffffff;
+}
+
+.nav-link.active {
+  color: #ffffff;
+  border-bottom-color: #ffffff;
+  font-weight: 600;
+}
+
+.tagline {
+  color: #cfe3d6;
+  font-style: italic;
+  font-size: 0.9rem;
+  white-space: nowrap;
+}
+
+.hamburger {
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 26px;
+  height: 20px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+}
+
+.hamburger span {
+  display: block;
+  height: 2px;
+  width: 100%;
+  background: #fff;
+  border-radius: 2px;
+  transition: var(--transition-smooth);
+}
+
+/* ---------- 4. HERO ---------- */
+.hero {
+  background: var(--color-bg-hero);
+  border-bottom: 1px solid #dcebe0;
+}
+
+.hero-inner {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 48px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 32px;
+  flex-wrap: wrap;
+}
+
+.hero-text {
+  flex: 1;
+  min-width: 280px;
+}
+
+.hero-welcome {
+  color: var(--color-text-muted);
+  font-size: 1.1rem;
+  margin-bottom: 4px;
+}
+
+.hero-title {
+  font-size: 2.6rem;
+  color: var(--color-dark-green);
+  margin-bottom: 16px;
+  line-height: 1.15;
+}
+
+.hero-title-assamese {
+  color: var(--color-accent-green);
+}
+
+.hero-desc {
+  font-size: 1.05rem;
+  color: var(--color-text-dark);
+  margin-bottom: 10px;
+  max-width: 560px;
+}
+
+.hero-following {
+  font-size: 1rem;
+  color: var(--color-text-dark);
+}
+
+.pill {
+  display: inline-block;
+  padding: 2px 12px;
+  border-radius: 999px;
+  font-weight: 600;
+}
+
+.pill-green {
+  background: var(--pill-green-bg);
+  color: var(--color-mid-green);
+}
+
+.pill-blue {
+  background: var(--pill-blue-bg);
+  color: var(--color-science-text);
+}
+
+.hero-badge {
+  text-align: right;
+  color: var(--color-mid-green);
+  font-family: "Segoe Script", cursive, sans-serif;
+  min-width: 220px;
+}
+
+.hero-badge-main {
+  font-size: 1.6rem;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.hero-badge-sub {
+  font-size: 1.1rem;
+  line-height: 1.4;
+}
+
+/* ---------- 5. CARDS ---------- */
+.main-content {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 40px 24px;
+}
+
+.card-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 28px;
+}
+
+.big-card {
+  display: block;
+  border-radius: var(--radius-lg);
+  padding: 28px;
+  border: 1px solid transparent;
+  box-shadow: var(--shadow-soft);
+  transition: var(--transition-smooth);
+  background: #fff;
+}
+
+.big-card:hover,
+.big-card:focus-visible {
+  transform: translateY(-4px) scale(1.01);
+  box-shadow: var(--shadow-hover);
+}
+
+.card-science {
+  background: var(--color-science-bg);
+  border-color: var(--color-science-border);
+}
+
+.card-science:hover {
+  background: #e1edfb;
+  border-color: #9dc4ef;
+}
+
+.card-biology {
+  background: var(--color-biology-bg);
+  border-color: var(--color-biology-border);
+}
+
+.card-biology:hover {
+  background: #dcf2e3;
+  border-color: #9ad6ac;
+}
+
+.big-card-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.big-card-title-group {
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+}
+
+.big-card-icon {
+  font-size: 1.8rem;
+  line-height: 1;
+}
+
+.card-science h2 {
+  color: var(--color-science-text);
+  font-size: 1.4rem;
+  margin-bottom: 4px;
+}
+
+.card-biology h2 {
+  color: var(--color-biology-text);
+  font-size: 1.4rem;
+  margin-bottom: 4px;
+}
+
+.big-card-header p {
+  color: var(--color-text-muted);
+  font-size: 0.95rem;
+}
+
+.big-card-emblem {
+  font-size: 1.6rem;
+  opacity: 0.8;
+}
+
+.mini-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.mini-list li {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: rgba(255, 255, 255, 0.6);
+  padding: 14px 16px;
+  border-radius: var(--radius-md);
+  font-weight: 600;
+  transition: var(--transition-smooth);
+}
+
+.card-science .mini-list li:hover {
+  background: #ffffff;
+  transform: translateX(2px);
+}
+
+.card-biology .mini-list li:hover {
+  background: #ffffff;
+  transform: translateX(2px);
+}
+
+.mini-icon {
+  font-size: 1.1rem;
+}
+
+/* ---------- Simple 2-card layout (Class 9-10 / 11-12 / subject pages) ---------- */
+.two-card-section {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 48px 24px;
+}
+
+.page-heading {
+  margin-bottom: 32px;
+}
+
+.page-heading h1 {
+  color: var(--color-dark-green);
+  font-size: 2rem;
+  margin-bottom: 8px;
+}
+
+.page-heading p {
+  color: var(--color-text-muted);
+}
+
+.two-card-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 28px;
+}
+
+.simple-card {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 12px;
+  background: #fff;
+  border: 1px solid #e1e9e3;
+  border-radius: var(--radius-lg);
+  padding: 40px 28px;
+  box-shadow: var(--shadow-soft);
+  transition: var(--transition-smooth);
+  min-height: 160px;
+  justify-content: center;
+}
+
+.simple-card:hover,
+.simple-card:focus-visible {
+  transform: translateY(-4px) scale(1.015);
+  box-shadow: var(--shadow-hover);
+  border-color: var(--color-accent-green);
+}
+
+.simple-card .simple-card-icon {
+  font-size: 2rem;
+}
+
+.simple-card h2 {
+  color: var(--color-dark-green);
+  font-size: 1.3rem;
+}
+
+.simple-card p {
+  color: var(--color-text-muted);
+  font-size: 0.95rem;
+}
+
+/* ---------- 6. CHAPTER GRID ---------- */
+.chapter-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+}
+
+.chapter-card {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: #fff;
+  border: 1px solid #e1e9e3;
+  border-radius: var(--radius-md);
+  padding: 18px 16px;
+  font-weight: 600;
+  color: var(--color-dark-green);
+  box-shadow: var(--shadow-soft);
+  transition: var(--transition-smooth);
+}
+
+.chapter-card:hover,
+.chapter-card:focus-visible {
+  background: var(--color-bg-hero);
+  border-color: var(--color-accent-green);
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-hover);
+}
+
+.chapter-number-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: var(--color-bg-hero);
+  color: var(--color-mid-green);
+  font-size: 0.85rem;
+  flex-shrink: 0;
+}
+
+/* ---------- 7. FEATURES STRIP / FOOTER ---------- */
+.features-strip {
+  background: #eef4ef;
+  border-top: 1px solid #dcebe0;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 32px 24px;
+}
+
+.feature {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.feature-icon {
+  font-size: 1.4rem;
+}
+
+.feature-title {
+  font-weight: 700;
+  color: var(--color-dark-green);
+  font-size: 0.95rem;
+}
+
+.feature-sub {
+  color: var(--color-text-muted);
+  font-size: 0.85rem;
+}
+
+.site-footer {
+  text-align: center;
+  padding: 20px;
+  color: var(--color-text-muted);
+  font-size: 0.85rem;
+  background: var(--color-bg-page);
+}
+
+/* ---------- 8. PLACEHOLDER PAGE ---------- */
+.placeholder-box {
+  max-width: 600px;
+  margin: 80px auto;
+  text-align: center;
+  background: #fff;
+  border: 1px solid #e1e9e3;
+  border-radius: var(--radius-lg);
+  padding: 48px 32px;
+  box-shadow: var(--shadow-soft);
+}
+
+.placeholder-box .placeholder-icon {
+  font-size: 2.4rem;
+  margin-bottom: 16px;
+}
+
+.placeholder-box h1 {
+  color: var(--color-dark-green);
+  margin-bottom: 12px;
+  font-size: 1.5rem;
+}
+
+.placeholder-box p {
+  color: var(--color-text-muted);
+  margin-bottom: 24px;
+}
+
+.back-link {
+  display: inline-block;
+  background: var(--color-mid-green);
+  color: #fff;
+  padding: 10px 22px;
+  border-radius: 999px;
+  font-weight: 600;
+  transition: var(--transition-smooth);
+}
+
+.back-link:hover {
+  background: var(--color-dark-green);
+}
+
+/* Breadcrumb */
+.breadcrumb {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 18px 24px 0;
+  font-size: 0.9rem;
+  color: var(--color-text-muted);
+}
+
+.breadcrumb a {
+  color: var(--color-mid-green);
+  font-weight: 600;
+}
+
+.breadcrumb a:hover {
+  text-decoration: underline;
+}
+
+/* ---------- 9. RESPONSIVE ---------- */
+@media (max-width: 900px) {
+  .card-grid,
+  .two-card-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .chapter-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .features-strip {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .tagline {
+    display: none;
+  }
+}
+
+@media (max-width: 720px) {
+  .hamburger {
+    display: flex;
+  }
+
+  .nav-links {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: var(--color-dark-green);
+    flex-direction: column;
+    gap: 0;
+    padding: 8px 0;
+  }
+
+  .nav-links.open {
+    display: flex;
+  }
+
+  .nav-links .nav-link {
+    padding: 14px 24px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  }
+
+  .navbar-inner {
+    position: relative;
+    flex-wrap: wrap;
+  }
+
+  .hero-inner {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .hero-badge {
+    text-align: center;
+  }
+
+  .hero-title {
+    font-size: 2.1rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .chapter-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .features-strip {
+    grid-template-columns: 1fr;
+  }
+}
